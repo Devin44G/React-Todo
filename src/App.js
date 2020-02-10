@@ -59,8 +59,13 @@ class App extends React.Component {
   };
 
   // CLEAR TASKS METHOD
-  clearTodos = () => {
-    
+  clearTodos = e => {
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(
+        todo => !todo.completed
+      )
+    });
   }
 
   render() {
@@ -68,7 +73,11 @@ class App extends React.Component {
       <div>
         <h1>Welcome to your Todo App!</h1>
         <TodoForm addNewTask={this.addNewTask}/>
-        <TodoList todos={this.state.todos} toggle={this.toggle}/>
+        <TodoList
+          todos={this.state.todos}
+          toggle={this.toggle}
+          clearTodos={this.clearTodos}
+        />
       </div>
     );
   }

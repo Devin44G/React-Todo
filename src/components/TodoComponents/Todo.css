@@ -1,0 +1,7 @@
+.todo-item {
+  cursor: pointer;
+}
+
+.checked {
+  text-decoration: line-through;
+}
